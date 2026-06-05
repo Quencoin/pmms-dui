@@ -421,11 +421,8 @@ function init(data) {
 	showLoadingIcon();
 
 	data.options.offset = parseTimecode(data.options.offset);
-
-	if (!data.options.title) {
-		data.options.title = data.options.url;
-	}
-
+	// FIX: Don't pre-fill title with URL here — initPlayer will set the real
+	// YouTube title after the player loads. Fallback happens inside initPlayer.
 	getPlayer(data.handle, data.options);
 }
 
